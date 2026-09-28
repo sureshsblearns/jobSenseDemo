@@ -1,0 +1,72 @@
+/* ------------------------------------------------------------ app shell */
+.app-shell { display: flex; min-height: 100vh; }
+
+.sidebar {
+  position: fixed; inset: 0 auto 0 0; width: var(--sidebar-w); z-index: 40;
+  display: flex; flex-direction: column;
+  background: var(--burgundy-dark); color: #f3e7ea;
+}
+.sidebar-brand { display: flex; align-items: center; gap: 0.6rem; padding: 1.1rem 1.25rem; color: var(--white); text-decoration: none; }
+.sidebar-brand:hover { color: var(--white); }
+.brand-mark { width: 32px; height: 32px; border-radius: 8px; background: var(--butter); color: var(--burgundy-dark); display: grid; place-items: center; font-weight: 800; font-size: 1.05rem; flex: none; }
+.brand-name { font-weight: 750; font-size: 1.12rem; letter-spacing: -0.01em; }
+.brand-tag { display: block; font-size: 0.7rem; font-weight: 500; opacity: 0.75; letter-spacing: 0.02em; }
+
+.sidebar nav { flex: 1; overflow-y: auto; padding: 0.5rem 0.75rem; }
+.nav-section { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.6; margin: 1rem 0.6rem 0.4rem; }
+.nav-link {
+  display: flex; align-items: center; gap: 0.7rem; padding: 0.55rem 0.7rem; margin-bottom: 2px;
+  border-radius: var(--radius-sm); color: #eadade; text-decoration: none; font-size: 0.92rem;
+}
+.nav-link:hover { background: rgba(255, 255, 255, 0.08); color: var(--white); }
+.nav-link.active { background: var(--butter); color: var(--burgundy-dark); font-weight: 650; }
+.nav-link svg { flex: none; }
+
+.sidebar-footer { padding: 0.9rem 1rem; border-top: 1px solid rgba(255, 255, 255, 0.12); }
+.user-chip { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; min-width: 0; }
+.avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--burgundy); color: var(--butter); display: grid; place-items: center; font-weight: 700; flex: none; border: 1px solid rgba(255,255,255,0.2); }
+.user-chip .who { min-width: 0; }
+.user-chip .who strong { display: block; font-size: 0.88rem; color: var(--white); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.user-chip .who span { display: block; font-size: 0.75rem; opacity: 0.7; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sidebar .btn-logout { width: 100%; color: #f3e7ea; border: 1px solid rgba(255,255,255,0.2); background: transparent; }
+.sidebar .btn-logout:hover { background: rgba(255,255,255,0.08); color: var(--white); }
+
+.main { flex: 1; margin-left: var(--sidebar-w); min-width: 0; display: flex; flex-direction: column; }
+.main-content { flex: 1; width: 100%; max-width: 1180px; margin: 0 auto; padding: 2rem 2rem 3rem; }
+
+.topbar { display: none; }
+
+@media (max-width: 960px) {
+  .sidebar { transform: translateX(-100%); transition: transform 0.2s ease; box-shadow: var(--shadow-lg); }
+  .sidebar.open { transform: none; }
+  .main { margin-left: 0; }
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+    position: sticky; top: 0; z-index: 30; padding: 0.6rem 1rem;
+    background: var(--burgundy-dark); color: var(--white);
+  }
+  .topbar .sidebar-brand { padding: 0; }
+  .topbar .btn-icon { color: var(--white); background: transparent; border: 1px solid rgba(255,255,255,0.25); }
+  .main-content { padding: 1.25rem 1rem 2.5rem; }
+  .sidebar-backdrop { position: fixed; inset: 0; background: rgba(43,32,35,0.4); z-index: 35; }
+}
+
+/* ------------------------------------------------------------ public */
+.public-header { border-bottom: 1px solid var(--border); background: var(--white); position: sticky; top: 0; z-index: 20; }
+.public-header-inner { max-width: 1120px; margin: 0 auto; padding: 0.8rem 1.25rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.public-header .sidebar-brand { padding: 0; color: var(--burgundy-dark); }
+.public-header .brand-mark { background: var(--burgundy); color: var(--butter); }
+.public-nav { display: flex; align-items: center; gap: 0.5rem; }
+
+.auth-page { min-height: calc(100vh - 140px); display: grid; place-items: center; padding: 2.5rem 1rem; }
+.auth-card { width: min(440px, 100%); }
+.auth-card h1 { font-size: 1.5rem; }
+
+/* -------------------------------------------------------------- footer */
+.site-footer {
+  background-color: #808080;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
